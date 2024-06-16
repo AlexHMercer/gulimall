@@ -38,14 +38,27 @@
             <artifactId>commons-lang</artifactId>
             <version>2.6</version>
         </dependency>
-        <!-- 直接依赖renren-fast-->
+<!--        &lt;!&ndash; 直接依赖renren-fast&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.renren</groupId>-->
+<!--            <artifactId>renren-fast</artifactId>-->
+<!--            <version>3.0.0</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+        <!-- mysql 驱动-->
         <dependency>
-            <groupId>io.renren</groupId>
-            <artifactId>renren-fast</artifactId>
-            <version>3.0.0</version>
-            <scope>compile</scope>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
         </dependency>
 
+
+<!--         servlet-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
+        </dependency>
     </dependencies>
 
     <properties>
