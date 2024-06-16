@@ -46,6 +46,7 @@ public class BrandController {
     /**
      * 信息
      */
+
     @RequestMapping("/info/{id}")
     //@RequiresPermissions("product:brand:info")
     public R info(@PathVariable("id") Long id){
