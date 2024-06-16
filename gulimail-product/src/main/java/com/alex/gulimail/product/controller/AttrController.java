@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-//import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/attr")

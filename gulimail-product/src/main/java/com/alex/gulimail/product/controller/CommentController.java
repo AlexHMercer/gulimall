@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/comment")
@@ -35,7 +35,7 @@ public class CommentController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:comment:list")
+    //@RequiresPermissions("product:comment:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = commentService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class CommentController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("product:comment:info")
+    //@RequiresPermissions("product:comment:info")
     public R info(@PathVariable("id") Long id){
 		CommentEntity comment = commentService.getById(id);
 
@@ -58,7 +58,7 @@ public class CommentController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:comment:save")
+    //@RequiresPermissions("product:comment:save")
     public R save(@RequestBody CommentEntity comment){
 		commentService.save(comment);
 
@@ -69,7 +69,7 @@ public class CommentController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:comment:update")
+    //@RequiresPermissions("product:comment:update")
     public R update(@RequestBody CommentEntity comment){
 		commentService.updateById(comment);
 
@@ -80,7 +80,7 @@ public class CommentController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:comment:delete")
+    //@RequiresPermissions("product:comment:delete")
     public R delete(@RequestBody Long[] ids){
 		commentService.removeByIds(Arrays.asList(ids));
 

@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/spuattrvalue")
@@ -35,7 +35,7 @@ public class SpuAttrValueController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:spuattrvalue:list")
+    //@RequiresPermissions("product:spuattrvalue:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = spuAttrValueService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class SpuAttrValueController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("product:spuattrvalue:info")
+    //@RequiresPermissions("product:spuattrvalue:info")
     public R info(@PathVariable("id") Long id){
 		SpuAttrValueEntity spuAttrValue = spuAttrValueService.getById(id);
 
@@ -58,7 +58,7 @@ public class SpuAttrValueController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:spuattrvalue:save")
+    //@RequiresPermissions("product:spuattrvalue:save")
     public R save(@RequestBody SpuAttrValueEntity spuAttrValue){
 		spuAttrValueService.save(spuAttrValue);
 
@@ -69,7 +69,7 @@ public class SpuAttrValueController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:spuattrvalue:update")
+    //@RequiresPermissions("product:spuattrvalue:update")
     public R update(@RequestBody SpuAttrValueEntity spuAttrValue){
 		spuAttrValueService.updateById(spuAttrValue);
 
@@ -80,7 +80,7 @@ public class SpuAttrValueController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:spuattrvalue:delete")
+    //@RequiresPermissions("product:spuattrvalue:delete")
     public R delete(@RequestBody Long[] ids){
 		spuAttrValueService.removeByIds(Arrays.asList(ids));
 

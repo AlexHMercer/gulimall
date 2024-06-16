@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/category")
@@ -35,7 +35,7 @@ public class CategoryController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:category:list")
+    //@RequiresPermissions("product:category:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = categoryService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class CategoryController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("product:category:info")
+    //@RequiresPermissions("product:category:info")
     public R info(@PathVariable("id") Long id){
 		CategoryEntity category = categoryService.getById(id);
 
@@ -58,7 +58,7 @@ public class CategoryController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:category:save")
+    //@RequiresPermissions("product:category:save")
     public R save(@RequestBody CategoryEntity category){
 		categoryService.save(category);
 
@@ -69,7 +69,7 @@ public class CategoryController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:category:update")
+    //@RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
 		categoryService.updateById(category);
 
@@ -80,7 +80,7 @@ public class CategoryController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:category:delete")
+    //@RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] ids){
 		categoryService.removeByIds(Arrays.asList(ids));
 

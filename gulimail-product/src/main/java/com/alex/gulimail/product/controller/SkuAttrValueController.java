@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/skuattrvalue")
@@ -35,7 +35,7 @@ public class SkuAttrValueController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:skuattrvalue:list")
+    //@RequiresPermissions("product:skuattrvalue:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = skuAttrValueService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class SkuAttrValueController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("product:skuattrvalue:info")
+    //@RequiresPermissions("product:skuattrvalue:info")
     public R info(@PathVariable("id") Long id){
 		SkuAttrValueEntity skuAttrValue = skuAttrValueService.getById(id);
 
@@ -58,7 +58,7 @@ public class SkuAttrValueController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:skuattrvalue:save")
+    //@RequiresPermissions("product:skuattrvalue:save")
     public R save(@RequestBody SkuAttrValueEntity skuAttrValue){
 		skuAttrValueService.save(skuAttrValue);
 
@@ -69,7 +69,7 @@ public class SkuAttrValueController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:skuattrvalue:update")
+    //@RequiresPermissions("product:skuattrvalue:update")
     public R update(@RequestBody SkuAttrValueEntity skuAttrValue){
 		skuAttrValueService.updateById(skuAttrValue);
 
@@ -80,7 +80,7 @@ public class SkuAttrValueController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:skuattrvalue:delete")
+    //@RequiresPermissions("product:skuattrvalue:delete")
     public R delete(@RequestBody Long[] ids){
 		skuAttrValueService.removeByIds(Arrays.asList(ids));
 

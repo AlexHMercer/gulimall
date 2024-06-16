@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/spudesc")
@@ -35,7 +35,7 @@ public class SpuDescController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:spudesc:list")
+    //@RequiresPermissions("product:spudesc:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = spuDescService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class SpuDescController {
      * 信息
      */
     @RequestMapping("/info/{spuId}")
-    @RequiresPermissions("product:spudesc:info")
+    //@RequiresPermissions("product:spudesc:info")
     public R info(@PathVariable("spuId") Long spuId){
 		SpuDescEntity spuDesc = spuDescService.getById(spuId);
 
@@ -58,7 +58,7 @@ public class SpuDescController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:spudesc:save")
+    //@RequiresPermissions("product:spudesc:save")
     public R save(@RequestBody SpuDescEntity spuDesc){
 		spuDescService.save(spuDesc);
 
@@ -69,7 +69,7 @@ public class SpuDescController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:spudesc:update")
+    //@RequiresPermissions("product:spudesc:update")
     public R update(@RequestBody SpuDescEntity spuDesc){
 		spuDescService.updateById(spuDesc);
 
@@ -80,7 +80,7 @@ public class SpuDescController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:spudesc:delete")
+    //@RequiresPermissions("product:spudesc:delete")
     public R delete(@RequestBody Long[] spuIds){
 		spuDescService.removeByIds(Arrays.asList(spuIds));
 

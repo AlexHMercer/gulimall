@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/sku")
@@ -35,7 +35,7 @@ public class SkuController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:sku:list")
+    //@RequiresPermissions("product:sku:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = skuService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class SkuController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("product:sku:info")
+    //@RequiresPermissions("product:sku:info")
     public R info(@PathVariable("id") Long id){
 		SkuEntity sku = skuService.getById(id);
 
@@ -58,7 +58,7 @@ public class SkuController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:sku:save")
+    //@RequiresPermissions("product:sku:save")
     public R save(@RequestBody SkuEntity sku){
 		skuService.save(sku);
 
@@ -69,7 +69,7 @@ public class SkuController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:sku:update")
+    //@RequiresPermissions("product:sku:update")
     public R update(@RequestBody SkuEntity sku){
 		skuService.updateById(sku);
 
@@ -80,7 +80,7 @@ public class SkuController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:sku:delete")
+    //@RequiresPermissions("product:sku:delete")
     public R delete(@RequestBody Long[] ids){
 		skuService.removeByIds(Arrays.asList(ids));
 

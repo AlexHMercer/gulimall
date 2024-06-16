@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/spu")
@@ -35,7 +35,7 @@ public class SpuController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:spu:list")
+    //@RequiresPermissions("product:spu:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = spuService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class SpuController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("product:spu:info")
+    //@RequiresPermissions("product:spu:info")
     public R info(@PathVariable("id") Long id){
 		SpuEntity spu = spuService.getById(id);
 
@@ -58,7 +58,7 @@ public class SpuController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:spu:save")
+    //@RequiresPermissions("product:spu:save")
     public R save(@RequestBody SpuEntity spu){
 		spuService.save(spu);
 
@@ -69,7 +69,7 @@ public class SpuController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:spu:update")
+    //@RequiresPermissions("product:spu:update")
     public R update(@RequestBody SpuEntity spu){
 		spuService.updateById(spu);
 
@@ -80,7 +80,7 @@ public class SpuController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:spu:delete")
+    //@RequiresPermissions("product:spu:delete")
     public R delete(@RequestBody Long[] ids){
 		spuService.removeByIds(Arrays.asList(ids));
 

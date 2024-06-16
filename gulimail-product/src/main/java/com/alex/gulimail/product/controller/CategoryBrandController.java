@@ -3,7 +3,7 @@ package com.alex.gulimail.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,7 +23,7 @@ import com.alex.common.utils.R;
  *
  * @author AlexMercer
  * @email h745164733@foxmail.com
- * @date 2024-06-16 16:31:17
+ * @date 2024-06-16 17:51:33
  */
 @RestController
 @RequestMapping("product/categorybrand")
@@ -35,7 +35,7 @@ public class CategoryBrandController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("product:categorybrand:list")
+    //@RequiresPermissions("product:categorybrand:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = categoryBrandService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class CategoryBrandController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("product:categorybrand:info")
+    //@RequiresPermissions("product:categorybrand:info")
     public R info(@PathVariable("id") Long id){
 		CategoryBrandEntity categoryBrand = categoryBrandService.getById(id);
 
@@ -58,7 +58,7 @@ public class CategoryBrandController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("product:categorybrand:save")
+    //@RequiresPermissions("product:categorybrand:save")
     public R save(@RequestBody CategoryBrandEntity categoryBrand){
 		categoryBrandService.save(categoryBrand);
 
@@ -69,7 +69,7 @@ public class CategoryBrandController {
      * 修改
      */
     @RequestMapping("/update")
-    @RequiresPermissions("product:categorybrand:update")
+    //@RequiresPermissions("product:categorybrand:update")
     public R update(@RequestBody CategoryBrandEntity categoryBrand){
 		categoryBrandService.updateById(categoryBrand);
 
@@ -80,7 +80,7 @@ public class CategoryBrandController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("product:categorybrand:delete")
+    //@RequiresPermissions("product:categorybrand:delete")
     public R delete(@RequestBody Long[] ids){
 		categoryBrandService.removeByIds(Arrays.asList(ids));
 
