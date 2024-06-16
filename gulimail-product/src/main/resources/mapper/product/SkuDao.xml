@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.alex.gulimail.product.dao.SkuDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.alex.gulimail.product.entity.SkuEntity" id="skuMap">
+        <result property="id" column="id"/>
+        <result property="spuId" column="spu_id"/>
+        <result property="name" column="name"/>
+        <result property="catagoryId" column="catagory_id"/>
+        <result property="brandId" column="brand_id"/>
+        <result property="defaultImage" column="default_image"/>
+        <result property="title" column="title"/>
+        <result property="subtitle" column="subtitle"/>
+        <result property="price" column="price"/>
+        <result property="weight" column="weight"/>
+    </resultMap>
+
+
+</mapper>
