@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.alex.gulimail.member.feign.CouponFeignService;
+import com.alibaba.nacos.shaded.org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +32,20 @@ import com.alex.common.utils.R;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private CouponFeignService couponFeignService;
+    //远程调用测试
+    @RequestMapping("/coupons")
+    public R testFeign(){
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setNickname("alex");
+        R memberCoupons = couponFeignService.memberCoupons();
+        Object coupons = memberCoupons.get("coupons");
+        return R.ok("200").put("VIP",memberEntity).put("coupons",coupons);
+
+    }
+
+
 
     /**
      * 列表

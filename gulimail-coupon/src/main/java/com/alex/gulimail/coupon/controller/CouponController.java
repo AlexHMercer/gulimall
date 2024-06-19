@@ -1,5 +1,6 @@
 package com.alex.gulimail.coupon.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
@@ -30,6 +31,14 @@ import com.alex.common.utils.R;
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    // feign调用测试方法
+    @RequestMapping("/member/list")
+    public R memberCoupons(){
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("100-10");
+        return R.ok("success").put("coupons",Arrays.asList(couponEntity));
+    }
 
     /**
      * 列表
